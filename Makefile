@@ -1,8 +1,5 @@
 build:
-	sudo docker build -t centos_packaging .
+	sudo docker build -t surveil_centos_packaging .
 
 mount:
-	sudo docker run -i -t --name centos_packaging centos_packaging
-
-remove:
-	sudo docker rm -f centos_packaging
+	sudo docker run -i -t surveil_centos_packaging bash
