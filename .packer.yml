@@ -1,2 +1,5 @@
 include:
  - "*/.packer.yml"
+repos:
+  rpm:
+   - "https://rdoproject.org/repos/rdo-release.rpm"
