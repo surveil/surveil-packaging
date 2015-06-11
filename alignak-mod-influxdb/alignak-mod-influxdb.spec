@@ -7,6 +7,7 @@ Group:		Network
 License:	AGPLv3+
 URL:		https://github.com/savoirfairelinux/mod-influxdb
 Source0:	%{name}_%{version}.orig.tar.gz
+Source1:	influxdb.cfg
 
 BuildArch:  noarch
 
@@ -33,7 +34,7 @@ install -d %{buildroot}/usr/share/doc/%{name}
 install -pm0755 README.md %{buildroot}/%{_docdir}/%{name}
 
 install -d %{buildroot}/etc/alignak/modules
-install -pm0755 etc/modules/* %{buildroot}/etc/alignak/modules
+install -pm0755 %{S:1} %{buildroot}/etc/alignak/modules
 
 
 %files
