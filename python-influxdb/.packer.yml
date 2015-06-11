@@ -1,0 +1,3 @@
+centos_7:
+    spec: python-influxdb.spec
+    source_archived: true
