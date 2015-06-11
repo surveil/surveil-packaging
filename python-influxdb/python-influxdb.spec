@@ -1,4 +1,4 @@
-Name:           influxdb
+Name:           python-influxdb
 Version:        2.3.0
 Release:        1
 Summary:        Python client for InfluxDB
@@ -11,19 +11,15 @@ Source0:        http://pypi.python.org/packages/source/i/%{name}/%{name}-%{versi
 BuildArch:  noarch
 
 BuildRequires: python-setuptools
+
 Requires: python-requests
 Requires: python-six
 
-# use to remove the dependency added by rpmbuild on python(abi)
-AutoReqProv: no
-
 %description
 Python client for InfluxDB
- .
- This is the Python 2 compatible package.
 
 %prep
-%setup -q
+%setup -qn influxdb-%{version}
 
 %build
 
