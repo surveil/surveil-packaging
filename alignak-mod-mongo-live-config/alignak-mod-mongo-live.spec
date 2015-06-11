@@ -5,8 +5,8 @@ Summary:        alignak module for configuration of mongo live
 
 Group:          Network
 License:        AGPLv3+
-URL:           	https://github.com/savoirfairelinux/mod-mongo-live-config
-Source0:        https://github.com/savoirfairelinux/mod-mongo-live-config/archive/0.3.0.tar.gz
+URL:		https://github.com/savoirfairelinux/mod-mongo-live-config
+Source0:        %{name}_%{version}.orig.tar.gz
 BuildArch:  noarch
 
 Requires: alignak-common >= 2.0
