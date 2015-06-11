@@ -46,3 +46,4 @@ install -pm0755 etc/modules/* %{buildroot}/etc/alignak/modules
 - Initial package
 
 
+
