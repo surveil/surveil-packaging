@@ -1,5 +1,5 @@
 Name:           alignak-mod-mongodb
-Version:        5396fded1c56d57202236d1236703a160aec7375
+Version:        2015_05_21
 Release:        1
 Summary:        Shinken module for mongodb
 
@@ -7,6 +7,7 @@ Group:          Network
 License:        AGPLv3+
 URL:           	https://github.com/shinken-monitoring/mod-mongodb
 Source0:        %{name}_%{version}.orig.tar.gz
+Source1:        mongodb.cfg
 
 BuildArch:  noarch
 
@@ -17,7 +18,7 @@ Requires: python-pymongo
 Shinken module for mongodb
 
 %prep
-%setup -qn mod-mongodb-%{version}
+%setup -qn mod-mongodb-5396fded1c56d57202236d1236703a160aec7375
 
 %build
 
@@ -32,7 +33,7 @@ install -d %{buildroot}/usr/share/doc/%{name}
 install -pm0755 README.md %{buildroot}/%{_docdir}/%{name}
 
 install -d %{buildroot}/etc/alignak/modules
-install -pm0755 etc/modules/* %{buildroot}/etc/alignak/modules
+install -pm0755 %{S:1} %{buildroot}/etc/alignak/modules
 
 
 %files
