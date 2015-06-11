@@ -1,0 +1,6 @@
+centos_7:
+    spec: surveil-webui.spec
+    source_archived: true
+    repos:
+        rpm:
+            - epel-release
