@@ -1,5 +1,5 @@
 Name:		alignak-mod-ws-arbiter
-Version:	ebae7950be9452ab80ec58575e9887d9b2a15d2a
+Version:	git_2015_05_13
 Release:	1
 Summary:	Alignak module for external commands trough HTTP
 
@@ -17,7 +17,7 @@ Requires:   python-influxdb
 Alignak module for listening external commands from a web service 
 
 %prep
-%setup -qn mod-ws-arbiter-%{version}
+%setup -qn mod-ws-arbiter-ebae7950be9452ab80ec58575e9887d9b2a15d2a
 
 
 %build
