@@ -20,16 +20,16 @@ Requires(post): systemd
 Requires(preun): systemd
 Requires(postun): systemd
 
-Requires: python-pecan>=0.5.0
-Requires: python-pymongo>=2.7.2
+Requires: python-pecan
+Requires: python-pymongo
 Requires: python-requests
 Requires: python-wsme
 Requires: python-oslo-config
 Requires: python-oslo-middleware
-Requires: python-oslo-policy>=0.3.0
+Requires: python-oslo-policy
 Requires: python-keystonemiddleware
 Requires: python-paste-deploy
-Requires: python-influxdb>>2.0.1
+Requires: python-influxdb
 Requires: python-six
 
 # use to remove the dependency added by rpmbuild on python(abi)
