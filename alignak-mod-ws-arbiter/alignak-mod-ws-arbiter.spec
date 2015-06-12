@@ -1,5 +1,5 @@
 Name:		alignak-mod-ws-arbiter
-Version:	git_2015_05_13
+Version:	2015_05_13
 Release:	1
 Summary:	Alignak module for external commands trough HTTP
 
@@ -44,5 +44,5 @@ install -pm0755 etc/modules/* %{buildroot}/etc/alignak/modules
 
 
 %changelog
-* Wed Jan 21 2015 Alexandre Viau <alexandre@alexandreviau.net> 2.7.3-1
+* Wed Jan 21 2015 Alexandre Viau <alexandre@alexandreviau.net> 2015_05_13-1
 - Initial Package
