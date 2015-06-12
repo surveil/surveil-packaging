@@ -41,6 +41,6 @@ install -pm0755 %{S:1} %{buildroot}/etc/alignak/modules
 
 
 %Changelog
-* Fri Jun 12 2015 Vincent Fournier <vincent.fournier@savoirfairelinux.com> 2014_09_29
+* Fri Jun 12 2015 Vincent Fournier <vincent.fournier@savoirfairelinux.com> 2014_09_29-1
 - Initial package
 
