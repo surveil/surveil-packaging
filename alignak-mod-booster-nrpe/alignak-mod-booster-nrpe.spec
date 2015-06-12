@@ -1,5 +1,5 @@
 Name:		alignak-mod-booster-nrpe
-Version:	git_2015_01_05
+Version:	2015_01_05
 Release:	1
 Summary:	Alignak module for boosting NRPE connections
 
@@ -43,5 +43,5 @@ install -pm0755 etc/modules/* %{buildroot}/etc/alignak/modules
 
 
 %changelog
-* Wed Jan 21 2015 Alexandre Viau <alexandre@alexandreviau.net> git_2015_01_05-1
+* Wed Jan 21 2015 Alexandre Viau <alexandre@alexandreviau.net> 2015_01_05-1
 - Initial Package
