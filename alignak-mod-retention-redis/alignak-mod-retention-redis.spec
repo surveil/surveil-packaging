@@ -1,5 +1,5 @@
 Name:		alignak-mod-retention-redis
-Version:	git_2014_09_29
+Version:	2014_09_29
 Release:	1
 Summary:	Alignak Module Retention for Redis
 
@@ -44,5 +44,5 @@ install -pm0755 etc/modules/* %{buildroot}/etc/alignak/modules
 
 
 %changelog
-* Thu Jun 11 2015 Flavien Peyre <flavien.peyre@savoirfairelinux.com> git_2014_09_29-1
+* Thu Jun 11 2015 Flavien Peyre <flavien.peyre@savoirfairelinux.com> 2014_09_29-1
 - Initial Package
