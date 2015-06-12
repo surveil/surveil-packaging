@@ -1,12 +1,13 @@
 Name:		alignak-mod-retention-redis
-Version:	2014_09_29
+Version:	20140929gitfc5499f
 Release:	1
 Summary:	Alignak Module Retention for Redis
 
 Group:		Network
 License:	AGPLv3+
 URL:		https://github.com/shinken-monitoring/mod-retention-redis
-Source0:	%{name}_%{version}.orig.tar.gz
+Source0:	%{name}_%{version}.tar.gz
+Source1:    retention-redis.cfg
 
 BuildArch:  noarch
 
@@ -33,7 +34,7 @@ install -d %{buildroot}/usr/share/doc/%{name}
 install -pm0755 README.md %{buildroot}/%{_docdir}/%{name}
 
 install -d %{buildroot}/etc/alignak/modules
-install -pm0755 etc/modules/* %{buildroot}/etc/alignak/modules
+install -pm0755 %{SOURCE1} %{buildroot}/etc/alignak/modules
 
 
 %files
@@ -44,5 +45,5 @@ install -pm0755 etc/modules/* %{buildroot}/etc/alignak/modules
 
 
 %changelog
-* Thu Jun 11 2015 Flavien Peyre <flavien.peyre@savoirfairelinux.com> 2014_09_29-1
+* Thu Jun 11 2015 Flavien Peyre <flavien.peyre@savoirfairelinux.com> 20140929gitfc5499f-1
 - Initial Package
