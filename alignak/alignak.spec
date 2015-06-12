@@ -3,10 +3,10 @@
 
 Summary:        Python Monitoring tool
 Name:           alignak
-Version:        d7f457d5ed94f08d9a6a38809106d3e0d35a1712
+Version:        0.0.1
 Release:        1
-URL:            http://www.%{name}-monitoring.org
-Source0:        http://www.%{name}-monitoring.org/pub/%{name}-%{version}.tar.gz
+URL:            https://github.com/Alignak-monitoring/alignak 
+Source0:        %{name}-%{version}.tar.gz
 License:        AGPLv3+
 Requires:       python
 Requires:       python-pycurl
