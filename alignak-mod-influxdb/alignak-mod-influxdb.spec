@@ -6,7 +6,7 @@ Summary:	Alignak Module InfluxDB for Broker
 Group:		Network
 License:	AGPLv3+
 URL:		https://github.com/savoirfairelinux/mod-influxdb
-Source0:	%{name}_%{version}.orig.tar.gz
+Source0:	%{name}_%{version}.tar.gz
 Source1:	influxdb.cfg
 
 BuildArch:  noarch
