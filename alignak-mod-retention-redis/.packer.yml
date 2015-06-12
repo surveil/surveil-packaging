@@ -1,0 +1,3 @@
+centos_7:
+    spec: alignak-mod-retention-redis.spec
+    source_archived: true
