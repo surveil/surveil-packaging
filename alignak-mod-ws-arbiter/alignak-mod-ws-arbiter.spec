@@ -1,6 +1,6 @@
 Name:		alignak-mod-ws-arbiter
 Version:	20150513gitebae795
-Release:	1
+Release:	2
 Summary:	Alignak module for external commands trough HTTP
 
 Group:		Network
@@ -11,7 +11,7 @@ Source1:	ws_arbiter.cfg
 
 BuildArch:  noarch
 
-Requires:   alignak-common >= 2.0
+Requires:   alignak-common
 Requires:   python-influxdb
 
 %description

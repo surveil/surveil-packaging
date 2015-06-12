@@ -1,6 +1,6 @@
 Name:		alignak-mod-influxdb
 Version:	2.7.4
-Release:	1
+Release:	2
 Summary:	Alignak Module InfluxDB for Broker
 
 Group:		Network
@@ -11,7 +11,7 @@ Source1:	influxdb.cfg
 
 BuildArch:  noarch
 
-Requires:   alignak-common >= 2.0
+Requires:   alignak-common
 Requires:   python-influxdb
 
 %description

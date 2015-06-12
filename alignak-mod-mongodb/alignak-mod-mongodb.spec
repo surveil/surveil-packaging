@@ -1,6 +1,6 @@
 Name:           alignak-mod-mongodb
 Version:        20150521git5396fde
-Release:        1
+Release:        2
 Summary:        Shinken module for mongodb
 
 Group:          Network
@@ -11,7 +11,7 @@ Source1:        mongodb.cfg
 
 BuildArch:  noarch
 
-Requires: alignak-common >= 2.0
+Requires: alignak-common
 Requires: python-pymongo
 
 %description

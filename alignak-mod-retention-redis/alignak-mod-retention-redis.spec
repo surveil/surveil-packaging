@@ -1,6 +1,6 @@
 Name:		alignak-mod-retention-redis
 Version:	20140929gitfc5499f
-Release:	1
+Release:	2
 Summary:	Alignak Module Retention for Redis
 
 Group:		Network
@@ -11,7 +11,7 @@ Source1:    retention-redis.cfg
 
 BuildArch:  noarch
 
-Requires:   alignak-common >= 2.0
+Requires:   alignak-common
 Requires:   python-redis
 
 %description
