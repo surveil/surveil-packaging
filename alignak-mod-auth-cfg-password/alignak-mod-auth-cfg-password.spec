@@ -1,6 +1,6 @@
 Name:           alignak-mod-auth-cfg-password
 Version:        20140929git6079d31
-Release:        1
+Release:        2
 Summary:        Alignak module for authentication
 
 Group:          Network
@@ -11,7 +11,7 @@ Source1:        auth_cfg_password.cfg
 
 BuildArch:  noarch
 
-Requires: alignak-common >= 2.0
+Requires: alignak-common
 
 %description
 Alignak module for authentication

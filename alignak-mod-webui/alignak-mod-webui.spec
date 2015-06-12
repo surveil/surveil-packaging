@@ -1,6 +1,6 @@
 Name:		alignak-mod-webui
 Version:	20150522git3215d6c
-Release:	1
+Release:	2
 Summary:	Alignak web ui
 
 Group:		Network
@@ -11,7 +11,7 @@ Source1:	webui.cfg
 
 BuildArch:  noarch
 
-Requires:   alignak-common >= 2.0
+Requires:   alignak-common
 Requires:   alignak-mod-auth-cfg-password
 Requires:   python-pymongo
 

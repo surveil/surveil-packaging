@@ -1,6 +1,6 @@
 Name:           alignak-mod-mongo-live-config
 Version:        0.3.0
-Release:        1
+Release:        2
 Summary:        alignak module for configuration of mongo live
 
 Group:          Network
@@ -11,7 +11,7 @@ Source1:        mongo-live-config.cfg
 
 BuildArch:  noarch
 
-Requires: alignak-common >= 2.0
+Requires: alignak-common
 Requires: python-pymongo
 
 %description
