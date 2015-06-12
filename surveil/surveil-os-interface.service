@@ -2,4 +2,4 @@
 Description=Surveil API service
 
 [Service]
-ExecStart=/usr/bin/surveil-rabbitMQ-consumer
+ExecStart=/usr/bin/surveil-os-interface

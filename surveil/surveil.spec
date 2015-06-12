@@ -1,5 +1,5 @@
 name:      surveil
-Version:   0.7.0
+Version:   0.8.0
 Release:   1
 Summary:   Surveil API
 
@@ -15,7 +15,7 @@ BuildArch: noarch
 
 BuildRequires: python-setuptools
 
-BuildRequires: systemd
+#BuildRequires: systemd
 Requires(post): systemd
 Requires(preun): systemd
 Requires(postun): systemd
@@ -29,7 +29,7 @@ Requires: python-oslo-middleware
 Requires: python-oslo-policy>=0.3.0
 Requires: python-keystonemiddleware
 Requires: python-paste-deploy
-Requires: python-influxdb==2.0.1
+Requires: python-influxdb>>2.0.1
 Requires: python-six
 
 # use to remove the dependency added by rpmbuild on python(abi)
@@ -40,8 +40,8 @@ Monitoring as a Service for OpenStack
 
 %package os-interface
 Summary:  Surveil interface for OpenStack
-#Requires: python-pika
-Requires: python-surveilclient==0.6.0
+Requires: python-pika
+Requires: python-surveilclient
 
 %description os-interface
 Surveil Interface with OpenStack
@@ -82,7 +82,7 @@ install -D -m 444 %{S:2} %{buildroot}%{_unitdir}/surveil-os-interface.service
 %{_unitdir}/surveil-os-interface.service
 
 %files os-interface
-%{_bindir}/surveil-rabbitMQ-consumer
+%{_bindir}/surveil-os-interface
 
 %post
 %systemd_post surveil-api.service
