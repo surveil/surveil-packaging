@@ -1,0 +1,10 @@
+[Unit]
+Description=Alignak Receiver
+After=syslog.target
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/alignak-receiver -d -c /etc/alignak/daemons/receiverd.ini
+
+[Install]
+WantedBy=multi-user.target
