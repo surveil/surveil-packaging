@@ -3,10 +3,12 @@
 
 Summary:        Python Monitoring tool
 Name:           alignak
-Version:        0.0.1
+Version:        20150525gitd7f457d
 Release:        1
 URL:            https://github.com/Alignak-monitoring/alignak 
 Source0:        %{name}-%{version}.tar.gz
+Source1:        etc
+Source2:        systemd
 License:        AGPLv3+
 Requires:       python
 Requires:       python-pycurl
@@ -24,7 +26,6 @@ BuildRequires:  python-setuptools
 BuildRequires:  graphviz
 BuildRequires:  make
 BuildRequires:	python-sphinx
-#BuildRequires:  python-sphinx
 Group:          Application/System
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-buildroot
@@ -44,6 +45,7 @@ Group:          Application/System
 #Requires: %{name} = %{version}-%{release}
 Requires:       python
 Requires:       python-pycurl
+Requires:       systemd
 
 Requires(post):  chkconfig
 Requires(preun): chkconfig
@@ -60,7 +62,7 @@ Group:          Application/System
 %description doc
 
 %prep
-%setup -q
+%setup -qn %{name}-d7f457d5ed94f08d9a6a38809106d3e0d35a1712
 
 # Apply all patches
 # TODO check patch from shinken packaging
@@ -107,11 +109,22 @@ rm -rf %{buildroot}/var/lib/alignak/libexec/
 
 # logrotate
 install -d -m0755 %{buildroot}%{_sysconfdir}/logrotate.d
-#install -p -m0644 for_fedora/%{name}.logrotate %{buildroot}%{_sysconfdir}/logrotate.d/alignak
+# TODO: CHANGE shinken for alignak in sources
+install -p -m0644 for_fedora/shinken.logrotate %{buildroot}%{_sysconfdir}/logrotate.d/alignak
 
 # tmpfiles
 install -d -m0755 %{buildroot}%{_sysconfdir}/tmpfiles.d
-#install -m0644  for_fedora/%{name}-tmpfiles.conf %{buildroot}%{_sysconfdir}/tmpfiles.d/%{name}.conf
+# TODO: CHANGE shinken for alignak in sources
+install -m0644  for_fedora/shinken-tmpfiles.conf %{buildroot}%{_sysconfdir}/tmpfiles.d/%{name}.conf
+
+# systemd
+install -d -m0755 %{buildroot}%{_unitdir}
+install -p -m0644 %{SOURCE2}/%{name}-arbiter.service %{buildroot}/%{_unitdir}/%{name}-arbiter.service
+install -p -m0644 %{SOURCE2}/%{name}-broker.service %{buildroot}/%{_unitdir}/%{name}-broker.service
+install -p -m0644 %{SOURCE2}/%{name}-reactionner.service %{buildroot}/%{_unitdir}/%{name}-reactionner.service
+install -p -m0644 %{SOURCE2}/%{name}-scheduler.service %{buildroot}/%{_unitdir}/%{name}-scheduler.service
+install -p -m0644 %{SOURCE2}/%{name}-receiver.service %{buildroot}/%{_unitdir}/%{name}-receiver.service
+install -p -m0644 %{SOURCE2}/%{name}-poller.service %{buildroot}/%{_unitdir}/%{name}-poller.service
 
 # log
 install -d -m0755 %{buildroot}%{_localstatedir}/log/%{name}
@@ -125,7 +138,8 @@ install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}/inventory
 mkdir -p %{buildroot}%{_localstatedir}/run/
 install -d -m0755 %{buildroot}%{_localstatedir}/run/%{name}
 # etc
-mkdir -p %{buildroot}%{_sysconfdir}/alignak/adagios
+cp -r %{SOURCE1}/%{name} %{buildroot}%{_sysconfdir}
+mkdir -p %{buildroot}%{_sysconfdir}/%{name}/modules
 
 %clean
 
@@ -165,14 +179,14 @@ fi
 
 
 %files common
-#%attr(0755,root,root) %{_initrddir}/%{name}
+/%{_unitdir}
 %{python_sitelib}/%{name}
 %{python_sitelib}/Alignak-*.egg-info
 /var/lib/alignak/cli/
 /usr/share/pyshared/alignak
 %config(noreplace) %{_sysconfdir}/default/%{name}
-#%config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
-#%config(noreplace) %{_sysconfdir}/tmpfiles.d/%{name}.conf
+%config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
+%config(noreplace) %{_sysconfdir}/tmpfiles.d/%{name}.conf
 %attr(-,%{alignak_user} ,%{alignak_group}) %dir %{_localstatedir}/log/%{name}
 %attr(-,%{alignak_user} ,%{alignak_group}) %dir %{_localstatedir}/lib/%{name}
 %attr(-,%{alignak_user} ,%{alignak_group}) %dir %{_localstatedir}/run/%{name}
@@ -185,43 +199,53 @@ fi
 %{_sbindir}/%{name}-discovery
 # arbiter
 %{_sbindir}/%{name}-arbiter
-#%config(noreplace) %{_sysconfdir}/%{name}/
-#%config(noreplace) %{_sysconfdir}/%{name}/adagios/
-#%config(noreplace) %{_sysconfdir}/%{name}/alignak.cfg
-#%config(noreplace) %{_sysconfdir}/%{name}/hosts/
-#%config(noreplace) %{_sysconfdir}/%{name}/packs/
-#%config(noreplace) %{_sysconfdir}/%{name}/commands.cfg
-#%config(noreplace) %{_sysconfdir}/%{name}/contacts.cfg
-#%config(noreplace) %{_sysconfdir}/%{name}/resource.cfg
-#%config(noreplace) %{_sysconfdir}/%{name}/templates.cfg
-#%config(noreplace) %{_sysconfdir}/%{name}/timeperiods.cfg
-#%config(noreplace) %{_sysconfdir}/%{name}/arbiters/arbiter.cfg
-#%config(noreplace) %{_sysconfdir}/%{name}/realms/realms.cfg
+%config(noreplace) %{_sysconfdir}/%{name}/alignak.cfg
+%config(noreplace) %{_sysconfdir}/%{name}/certs/
+%config(noreplace) %{_sysconfdir}/%{name}/hosts/
+%config(noreplace) %{_sysconfdir}/%{name}/packs/
+%config(noreplace) %{_sysconfdir}/%{name}/modules/
+%config(noreplace) %{_sysconfdir}/%{name}/commands/
+%config(noreplace) %{_sysconfdir}/%{name}/contacts/
+%config(noreplace) %{_sysconfdir}/%{name}/contactgroups/
+%config(noreplace) %{_sysconfdir}/%{name}/resource.d/
+%config(noreplace) %{_sysconfdir}/%{name}/templates/
+%config(noreplace) %{_sysconfdir}/%{name}/timeperiods/
+%config(noreplace) %{_sysconfdir}/%{name}/arbiters/arbiter-master.cfg
+%config(noreplace) %{_sysconfdir}/%{name}/realms/
+%config(noreplace) %{_sysconfdir}/%{name}/notificationways/
+# TODO: remove: Seems Useless
+%config(noreplace) %{_sysconfdir}/%{name}/discovery
+%config(noreplace) %{_sysconfdir}/%{name}/hostgroups/
+%config(noreplace) %{_sysconfdir}/%{name}/services/
+%config(noreplace) %{_sysconfdir}/%{name}/servicegroups/
+%config(noreplace) %{_sysconfdir}/%{name}/dependencies/
+%config(noreplace) %{_sysconfdir}/%{name}/escalations/
 #reactionner
 %{_sbindir}/%{name}-reactionner
-#%config(noreplace) %{_sysconfdir}/%{name}/daemons/reactionnerd.ini
-#%config(noreplace) %{_sysconfdir}/%{name}/reactionners/reactionner.cfg
+%config(noreplace) %{_sysconfdir}/%{name}/daemons/reactionnerd.ini
+%config(noreplace) %{_sysconfdir}/%{name}/reactionners/reactionner-master.cfg
+%config(noreplace) %{_sysconfdir}/%{name}/reactionners/reactionner-android-sms.cfg
 # scheduler
 %{_sbindir}/%{name}-scheduler
-#%config(noreplace) %{_sysconfdir}/%{name}/daemons/schedulerd.ini
-#%config(noreplace) %{_sysconfdir}/%{name}/schedulers/scheduler.cfg
+%config(noreplace) %{_sysconfdir}/%{name}/daemons/schedulerd.ini
+%config(noreplace) %{_sysconfdir}/%{name}/schedulers/scheduler-master.cfg
 # poller
 %{_sbindir}/%{name}-poller
-#%config(noreplace) %{_sysconfdir}/%{name}/daemons/pollerd.ini
-#%config(noreplace) %{_sysconfdir}/%{name}/pollers/poller.cfg
+%config(noreplace) %{_sysconfdir}/%{name}/daemons/pollerd.ini
+%config(noreplace) %{_sysconfdir}/%{name}/pollers/poller-master.cfg
 # broker
 %{_sbindir}/%{name}-broker
-#%config(noreplace) %{_sysconfdir}/%{name}/daemons/brokerd.ini
-#%config(noreplace) %{_sysconfdir}/%{name}/brokers/broker.cfg
+%config(noreplace) %{_sysconfdir}/%{name}/daemons/brokerd.ini
+%config(noreplace) %{_sysconfdir}/%{name}/brokers/broker-master.cfg
 # receiver
 %{_sbindir}/%{name}-receiver
-#%config(noreplace) %{_sysconfdir}/%{name}/daemons/receiverd.ini
-#%config(noreplace) %{_sysconfdir}/%{name}/receivers/receiver.cfg
+%config(noreplace) %{_sysconfdir}/%{name}/daemons/receiverd.ini
+%config(noreplace) %{_sysconfdir}/%{name}/receivers/receiver-master.cfg
 
 %files doc
 %docdir %{_localstatedir}/lib/%{name}/doc/build/html
 
 %changelog
-* Thu Jun 11 2015 Thibault Cohen <thibault.cohen@savoirfairelinux.com> - 0.0.1-1
+* Thu Jun 11 2015 Thibault Cohen <thibault.cohen@savoirfairelinux.com> - 0.0.1-20150611
 - Initial package
 
