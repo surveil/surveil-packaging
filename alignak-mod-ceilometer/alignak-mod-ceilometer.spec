@@ -6,7 +6,8 @@ Summary:	Alignak Module Ceilometer for Broker
 Group:		Network
 License:	AGPLv3+
 URL:		https://github.com/savoirfairelinux/mod-ceilometer
-Source0:	%{name}_%{version}.orig.tar.gz
+Source0:	%{name}_%{version}.tar.gz
+Source1:	ceilometer.cfg
 
 BuildArch:  noarch
 
@@ -33,8 +34,7 @@ install -d %{buildroot}/usr/share/doc/%{name}
 install -pm0755 README.md %{buildroot}/%{_docdir}/%{name}
 
 install -d %{buildroot}/etc/alignak/modules
-install -pm0755 etc/modules/* %{buildroot}/etc/alignak/modules
-
+install -pm0755 %{S:1} %{buildroot}/etc/alignak/modules
 
 %files
 /usr/share/pyshared/alignak/modules/mod-ceilometer
@@ -44,5 +44,5 @@ install -pm0755 etc/modules/* %{buildroot}/etc/alignak/modules
 
 
 %changelog
-* Wed Jan 21 2015 Alexandre Viau <alexandre@alexandreviau.net> 2.7.3-1
+* Wed Jan 21 2015 Alexandre Viau <alexandre@alexandreviau.net> 0.1.0-1
 - Initial Package

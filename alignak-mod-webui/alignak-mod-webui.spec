@@ -1,12 +1,12 @@
 Name:		alignak-mod-webui
-Version:	2015_05_22
+Version:	20150522git3215d6c
 Release:	1
 Summary:	Alignak web ui
 
 Group:		Network
 License:	AGPLv3+
 URL:		https://github.com/shinken-monitoring/mod-webui
-Source0:	%{name}_%{version}.orig.tar.gz
+Source0:	%{name}_%{version}.tar.gz
 Source1:	webui.cfg
 
 BuildArch:  noarch
@@ -44,5 +44,5 @@ install -pm0755 %{S:1} %{buildroot}/etc/alignak/modules
 
 
 %changelog
-* Wed Jan 21 2015 Vincent Fournier <vincent.fournier@savoirfairelinux.com> 2015_05_22
+* Wed Jan 21 2015 Vincent Fournier <vincent.fournier@savoirfairelinux.com> 20150522git3215d6c
 - Initial Package
