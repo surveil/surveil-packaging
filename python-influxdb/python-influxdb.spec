@@ -1,5 +1,5 @@
 Name:           python-influxdb
-Version:        2.3.0
+Version:        2.4.0
 Release:        1
 Summary:        Python client for InfluxDB
 
@@ -33,6 +33,6 @@ rm -rf  %{buildroot}/%{python_sitelib}/tests
 %{python_sitelib}/influxdb*
 
 %Changelog
-* Wed Jun 10 2015 Flavien Peyre <flavien.peyre@savoirfairelinux.com> 2.3.0-1
+* Wed Jun 10 2015 Flavien Peyre <flavien.peyre@savoirfairelinux.com> 2.4.0-1
 - Initial package
 
