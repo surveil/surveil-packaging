@@ -1,12 +1,12 @@
 Name:           alignak-mod-mongodb
-Version:        2015_05_21
+Version:        20150521git5396fde
 Release:        1
 Summary:        Shinken module for mongodb
 
 Group:          Network
 License:        AGPLv3+
 URL:           	https://github.com/shinken-monitoring/mod-mongodb
-Source0:        %{name}_%{version}.orig.tar.gz
+Source0:        %{name}_%{version}.tar.gz
 Source1:        mongodb.cfg
 
 BuildArch:  noarch
@@ -44,6 +44,7 @@ install -pm0755 %{S:1} %{buildroot}/etc/alignak/modules
 
 
 %Changelog
-* Thu Jun 11 2015 Vincent Fournier <vincent.fournier@savoirfairelinux.com> 5396fded1c56d57202236d1236703a160aec7375-1
+* Thu Jun 11 2015 Vincent Fournier <vincent.fournier@savoirfairelinux.com> 20150521git5396fde
+-1
 - Initial package
 
