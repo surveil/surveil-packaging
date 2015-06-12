@@ -1,12 +1,13 @@
 Name:		alignak-mod-ws-arbiter
-Version:	2015_05_13
+Version:	20150513gitebae795
 Release:	1
 Summary:	Alignak module for external commands trough HTTP
 
 Group:		Network
 License:	AGPLv3+
 URL:		https://github.com/shinken-monitoring/mod-ws-arbiter
-Source0:	%{name}_%{version}.orig.tar.gz
+Source0:	%{name}_%{version}.tar.gz
+Source1:	ws_arbiter.cfg
 
 BuildArch:  noarch
 
@@ -33,7 +34,7 @@ install -d %{buildroot}/usr/share/doc/%{name}
 install -pm0755 README.rst %{buildroot}/%{_docdir}/%{name}
 
 install -d %{buildroot}/etc/alignak/modules
-install -pm0755 etc/modules/* %{buildroot}/etc/alignak/modules
+install -pm0755 %{SOURCE1} %{buildroot}/etc/alignak/modules
 
 
 %files
@@ -44,5 +45,5 @@ install -pm0755 etc/modules/* %{buildroot}/etc/alignak/modules
 
 
 %changelog
-* Wed Jan 21 2015 Alexandre Viau <alexandre@alexandreviau.net> 2015_05_13-1
+* Wed Jan 21 2015 Alexandre Viau <alexandre@alexandreviau.net> 20150513gitebae795-1
 - Initial Package
