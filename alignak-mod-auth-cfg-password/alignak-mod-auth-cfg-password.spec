@@ -1,12 +1,12 @@
 Name:           alignak-mod-auth-cfg-password
-Version:        2014_09_29
+Version:        20140929git6079d31
 Release:        1
 Summary:        Alignak module for authentication
 
 Group:          Network
 License:        AGPLv3+
 URL:            https://github.com/shinken-monitoring/mod-auth-cfg-password
-Source0:        %{name}_%{version}.orig.tar.gz
+Source0:        %{name}_%{version}.tar.gz
 Source1:        auth_cfg_password.cfg
 
 BuildArch:  noarch
@@ -41,6 +41,6 @@ install -pm0755 %{S:1} %{buildroot}/etc/alignak/modules
 
 
 %Changelog
-* Fri Jun 12 2015 Vincent Fournier <vincent.fournier@savoirfairelinux.com> 2014_09_29
+* Fri Jun 12 2015 Vincent Fournier <vincent.fournier@savoirfairelinux.com> 20140929git6079d31-1
 - Initial package
 
