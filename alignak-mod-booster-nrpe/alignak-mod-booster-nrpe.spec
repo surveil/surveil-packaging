@@ -1,5 +1,5 @@
 Name:		alignak-mod-booster-nrpe
-Version:	de7099706855e32c1962c77740be0fae446d15f5
+Version:	git_2015_01_05
 Release:	1
 Summary:	Alignak module for boosting NRPE connections
 
@@ -16,7 +16,7 @@ Requires:   alignak-common >= 2.0
 The NRPE module allows Shinken Pollers to bypass the launch of the check_nrpe process.
 
 %prep
-%setup -qn mod-booster-nrpe-%{version}
+%setup -qn mod-booster-nrpe-de7099706855e32c1962c77740be0fae446d15f5
 
 
 %build
@@ -43,5 +43,5 @@ install -pm0755 etc/modules/* %{buildroot}/etc/alignak/modules
 
 
 %changelog
-* Wed Jan 21 2015 Alexandre Viau <alexandre@alexandreviau.net> 2.7.3-1
+* Wed Jan 21 2015 Alexandre Viau <alexandre@alexandreviau.net> git_2015_01_05-1
 - Initial Package
