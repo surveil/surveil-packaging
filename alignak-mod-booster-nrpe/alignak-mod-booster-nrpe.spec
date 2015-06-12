@@ -1,5 +1,5 @@
 Name:		alignak-mod-booster-nrpe
-Version:	2015_01_05
+Version:	20150105gitde70997
 Release:	1
 Summary:	Alignak module for boosting NRPE connections
 
@@ -7,6 +7,7 @@ Group:		Network
 License:	AGPLv3+
 URL:		https://github.com/shinken-monitoring/mod-booster-nrpe
 Source0:	%{name}_%{version}.orig.tar.gz
+Source1:    booster_nrpe.cfg
 
 BuildArch:  noarch
 
@@ -32,7 +33,7 @@ install -d %{buildroot}/usr/share/doc/%{name}
 install -pm0755 README.rst %{buildroot}/%{_docdir}/%{name}
 
 install -d %{buildroot}/etc/alignak/modules
-install -pm0755 etc/modules/* %{buildroot}/etc/alignak/modules
+install -pm0755 %{SOURCE1} %{buildroot}/etc/alignak/modules
 
 
 %files
@@ -43,5 +44,5 @@ install -pm0755 etc/modules/* %{buildroot}/etc/alignak/modules
 
 
 %changelog
-* Wed Jan 21 2015 Alexandre Viau <alexandre@alexandreviau.net> 2015_01_05-1
+* Thu Jun 11 2015 Alexandre Viau <alexandre@alexandreviau.net> 20150105gitde70997-1
 - Initial Package
