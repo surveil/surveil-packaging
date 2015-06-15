@@ -1,0 +1,12 @@
+[Unit]
+Description=Surveil Full
+Requires=mongod.service
+Requires=influxdb.service
+Requires=alignak-arbiter.service
+Requires=alignak-broker.service
+Requires=alignak-poller.service
+Requires=alignak-reactionner.service
+Requires=alignak-receiver.service
+Requires=alignak-scheduler.service
+Requires=surveil-os-interface.service
+Requires=surveil-api.service

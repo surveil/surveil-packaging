@@ -11,6 +11,7 @@ Source0:   http://pypi.python.org/packages/source/p/%{name}/%{name}-%{version}.t
 Source1:   surveil-api.service
 Source2:   surveil-os-interface.service
 Source3:   config
+Source4:   surveil-full.target
 
 BuildArch: noarch
 
@@ -36,16 +37,38 @@ Requires: python-six
 # use to remove the dependency added by rpmbuild on python(abi)
 AutoReqProv: no
 
-%description
-Monitoring as a Service for OpenStack
-
 %package os-interface
 Summary:  Surveil interface for OpenStack
 Requires: python-pika
 Requires: python-surveilclient
 
+%package full
+Summary: Surveil All-in-One installation
+Requires: mongodb-server
+Requires: influxdb
+Requires: grafana
+Requires: alignak
+Requires: alignak-mod-auth-cfg-password
+Requires: alignak-mod-booster-nrpe
+Requires: alignak-mod-ceilometer
+Requires: alignak-mod-influxdb
+Requires: alignak-mod-mongo-live-config
+Requires: alignak-mod-mongodb
+Requires: alignak-mod-webui
+Requires: alignak-mod-ws-arbiter
+Requires: surveil
+Requires: surveil-webui
+Requires: surveil-os-interface
+Requires: python-surveilclient
+
+%description
+Monitoring as a Service for OpenStack
+
 %description os-interface
 Surveil Interface with OpenStack
+
+%description full
+Surveil All-in-One installation for a single host
 
 %prep
 %setup -q
@@ -70,6 +93,7 @@ install -pm0755 %{S:3}/* %{buildroot}%{_sysconfdir}/surveil
 # Init scripts
 install -D -m 444 %{S:1} %{buildroot}%{_unitdir}/surveil-api.service
 install -D -m 444 %{S:2} %{buildroot}%{_unitdir}/surveil-os-interface.service
+install -D -m 444 %{S:4} %{buildroot}%{_unitdir}/surveil-full.target
 
 %files
 %{python_sitelib}/surveil
@@ -85,11 +109,17 @@ install -D -m 444 %{S:2} %{buildroot}%{_unitdir}/surveil-os-interface.service
 %files os-interface
 %{_bindir}/surveil-os-interface
 
+%files full
+%{_unitdir}/surveil-full.target
+
 %post
 %systemd_post surveil-api.service
 
 %post os-interface
 %systemd_post surveil-os-interface.service
+
+%post full
+%systemd_post surveil-full.target
 
 %preun
 %systemd_preun surveil-api.service
@@ -97,11 +127,17 @@ install -D -m 444 %{S:2} %{buildroot}%{_unitdir}/surveil-os-interface.service
 %preun os-interface
 %systemd_preun surveil-os-interface.service
 
+%preun full
+%systemd_preun surveil-full.target
+
 %postun
 %systemd_postun_with_restart surveil-api.service
 
 %postun os-interface
 %systemd_postun_with_restart surveil-os-interface.service
+
+%postun full
+%systemd_postun_with_restart surveil-full.target
 
 %changelog
 * Wed Jun 10 2015 Alexandre Viau <alexandre@alexandreviau.net> 1
