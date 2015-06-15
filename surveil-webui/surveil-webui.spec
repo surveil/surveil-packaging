@@ -1,13 +1,13 @@
 Name:		surveil-webui
 Version:	0.8.0
-Release:	1
+Release:	2
 Summary:	Web Interface for Surveil
 
 Group:		Network
 License:	AGPLv3+
 URL:		https://github.com/stackforge/bansho
-#Source0:	%{name}-%{version}.tar.gz
 Source0:	bansho-%{version}.tar.gz
+Source1:	surveil-webui.conf
 BuildArch:  noarch
 Requires:  httpd
 
@@ -36,13 +36,12 @@ mkdir -p %{buildroot}/usr/share/
 cp -r dist %{buildroot}/usr/share/surveil-webui
 mkdir -p %{buildroot}/%{_sysconfdir}/surveil-webui/
 ln -s /usr/share/surveil-webui/components/config/config.json %{buildroot}/%{_sysconfdir}/surveil-webui/config.json
-#install -pm0755 contrib/apache/surveil-webui.conf %{buildroot}/%{_sysconfdir}/httpd/conf.d/urveil-webui.conf
 
-
+install -pm0755 %{S:1} %{buildroot}/%{_sysconfdir}/httpd/conf.d/surveil-webui.conf
 
 %files
 /usr/share/surveil-webui
-#%config(noreplace) %{_sysconfdir}/httpd/conf.d/surveil-webui.conf
+%config(noreplace) %{_sysconfdir}/httpd/conf.d/surveil-webui.conf
 %config(noreplace) %{_sysconfdir}/surveil-webui/config.json
 
 
