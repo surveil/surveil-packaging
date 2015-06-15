@@ -3,6 +3,9 @@ yum install surveil mongodb-server influxdb grafana alignak python-surveilclient
 # MongoDB
 systemctl start mongod.service
 
+# InfluxDB
+systemctl start influxdb
+
 # Alignak
 systemctl start alignak-arbiter
 systemctl start alignak-broker
