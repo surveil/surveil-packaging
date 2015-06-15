@@ -1,6 +1,9 @@
-yum install surveil mongodb alignak python-surveilclient alignak-mod-auth-cfg-password alignak-mod-booster-nrpe  alignak-mod-ceilometer alignak-mod-influxdb  alignak-mod-mongo-live-config alignak-mod-mongodb alignak-mod-webui alignak-mod-ws-arbiter surveil-webui --nogpgcheck
+yum install surveil mongodb-server influxdb alignak python-surveilclient alignak-mod-auth-cfg-password alignak-mod-booster-nrpe  alignak-mod-ceilometer alignak-mod-influxdb  alignak-mod-mongo-live-config alignak-mod-mongodb alignak-mod-webui alignak-mod-ws-arbitmer surveil-webui influxdb --nogpgcheck
 
-systemctl start surveil-api
+# MongoDB
+sudo service mongod start
+
+# Alignak
 systemctl start alignak-arbiter
 systemctl start alignak-broker
 systemctl start alignak-poller
@@ -8,3 +11,7 @@ systemctl start alignak-reactionner
 systemctl start alignak-receiver
 systemctl start alignak-scheduler
 
+# Surveil
+systemctl start surveil-api
+
+surveil-init
