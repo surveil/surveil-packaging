@@ -1,6 +1,6 @@
 Name:           alignak-mod-mongo-live-config
 Version:        0.3.0
-Release:        2
+Release:        3
 Summary:        alignak module for configuration of mongo live
 
 Group:          Network
