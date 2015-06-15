@@ -3,8 +3,7 @@ Description=Alignak Broker
 After=syslog.target
 
 [Service]
-Type=forking
-ExecStart=/usr/sbin/alignak-broker -d -c /etc/alignak/daemons/brokerd.ini
+ExecStart=/usr/sbin/alignak-broker -c /etc/alignak/daemons/brokerd.ini
 
 [Install]
 WantedBy=multi-user.target

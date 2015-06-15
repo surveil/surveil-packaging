@@ -3,8 +3,7 @@ Description=Alignak Scheduler
 After=syslog.target
 
 [Service]
-Type=forking
-ExecStart=/usr/sbin/alignak-scheduler -d -c /etc/alignak/daemons/schedulerd.ini
+ExecStart=/usr/sbin/alignak-scheduler -c /etc/alignak/daemons/schedulerd.ini
 
 [Install]
 WantedBy=multi-user.target
