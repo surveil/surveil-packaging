@@ -1,6 +1,6 @@
 name:      surveil
 Version:   0.8.0
-Release:   1
+Release:   2
 Summary:   Surveil API
 
 Group:     Network
@@ -10,6 +10,7 @@ URL:       https://github.com/stackforge/surveil
 Source0:   http://pypi.python.org/packages/source/p/%{name}/%{name}-%{version}.tar.gz
 Source1:   surveil-api.service
 Source2:   surveil-os-interface.service
+Source3:   surveil.cfg
 
 BuildArch: noarch
 
@@ -64,7 +65,7 @@ rm -rf  %{buildroot}/%{python_sitelib}/surveil*.egg-info*
 
 # /etc/surveil configuration
 install -d %{buildroot}%{_sysconfdir}/surveil
-install -pm0755 etc/surveil/* %{buildroot}%{_sysconfdir}/surveil
+install -pm0755 %{S:3} %{buildroot}%{_sysconfdir}/surveil
 
 # Init scripts
 install -D -m 444 %{S:1} %{buildroot}%{_unitdir}/surveil-api.service
