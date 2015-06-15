@@ -1,5 +1,6 @@
 yum install surveil mongodb alignak python-surveilclient alignak-mod-auth-cfg-password alignak-mod-booster-nrpe  alignak-mod-ceilometer alignak-mod-influxdb  alignak-mod-mongo-live-config alignak-mod-mongodb alignak-mod-webui alignak-mod-ws-arbiter surveil-webui --nogpgcheck
 
+systemctl start surveil-api
 systemctl start alignak-arbiter
 systemctl start alignak-broker
 systemctl start alignak-poller
