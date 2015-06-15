@@ -237,8 +237,12 @@ function build
             done
         fi
 
-        # Update repo
-	${CREATEREPO} --update ${DISTRO_FOLDER}
+    # Download extra packages
+    wget -O ${DISTRO_FOLDER}/influxdb-0.9.0-1.x86_64.rpm https://s3.amazonaws.com/influxdb/influxdb-0.9.0-1.x86_64.rpm
+    wget -O ${DISTRO_FOLDER}/grafana-2.1.0-pre1.x86_64.rpm https://grafanarel.s3.amazonaws.com/builds/grafana-2.1.0-pre1.x86_64.rpm
+
+    # Update repo
+    ${CREATEREPO} --update ${DISTRO_FOLDER}
     
     done
 } 
