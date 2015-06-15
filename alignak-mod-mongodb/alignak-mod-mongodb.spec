@@ -1,6 +1,6 @@
 Name:           alignak-mod-mongodb
 Version:        20150521git5396fde
-Release:        2
+Release:        3
 Summary:        Shinken module for mongodb
 
 Group:          Network
