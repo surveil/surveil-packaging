@@ -1,7 +1,7 @@
 yum install surveil mongodb-server influxdb grafana alignak python-surveilclient alignak-mod-auth-cfg-password alignak-mod-booster-nrpe  alignak-mod-ceilometer alignak-mod-influxdb  alignak-mod-mongo-live-config alignak-mod-mongodb alignak-mod-webui alignak-mod-ws-arbitmer surveil-webui influxdb --nogpgcheck
 
 # MongoDB
-sudo service mongod start
+systemctl start mongod.service
 
 # Alignak
 systemctl start alignak-arbiter
