@@ -3,8 +3,7 @@ Description=Alignak Reactionner
 After=syslog.target
 
 [Service]
-Type=forking
-ExecStart=/usr/sbin/alignak-reactionner -d -c /etc/alignak/daemons/reactionnerd.ini
+ExecStart=/usr/sbin/alignak-reactionner -c /etc/alignak/daemons/reactionnerd.ini
 
 [Install]
 WantedBy=multi-user.target

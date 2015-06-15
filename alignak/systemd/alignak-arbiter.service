@@ -3,8 +3,7 @@ Description=Alignak Arbiter
 After=syslog.target
 
 [Service]
-Type=forking
-ExecStart=/usr/sbin/alignak-arbiter -d -r -c /etc/alignak/alignak.cfg
+ExecStart=/usr/sbin/alignak-arbiter -r -c /etc/alignak/alignak.cfg
 
 [Install]
 WantedBy=multi-user.target
