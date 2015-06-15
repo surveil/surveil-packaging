@@ -275,8 +275,7 @@ echo
 if [ "${REMOTE_USER}" ] && [ "${REMOTE_IP}" ] && [ "${REMOTE_FOLDER}" ]
 then
     echo Send repository on remote host
-    rsync -arv --exclude="surveil.pub.key" ${LOCAL_DDL_FOLDER}/surveil/* ${REMOTE_USER}@${REMOTE_IP}:${REMOTE_FOLDER}
-    #rsync -arv --delete --exclude="surveil.pub.key" ${LOCAL_DDL_FOLDER}/surveil/* ${REMOTE_USER}@${REMOTE_IP}:${REMOTE_FOLDER}
+    rsync -arv --delete --exclude="surveil.pub.key" ${LOCAL_DDL_FOLDER}/surveil/* ${REMOTE_USER}@${REMOTE_IP}:${REMOTE_FOLDER}
 else
     echo Repository NOT sent on remote host
 fi
