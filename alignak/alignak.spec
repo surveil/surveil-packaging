@@ -4,7 +4,7 @@
 Summary:        Python Monitoring tool
 Name:           alignak
 Version:        20150525gitd7f457d
-Release:        2
+Release:        3
 URL:            https://github.com/Alignak-monitoring/alignak 
 Source0:        %{name}-%{version}.tar.gz
 Source1:        etc
