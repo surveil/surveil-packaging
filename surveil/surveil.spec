@@ -39,7 +39,7 @@ AutoReqProv: no
 
 %package os-interface
 Summary:  Surveil interface for OpenStack
-##Requires: python-pika
+Requires: python-pika
 Requires: python-surveilclient
 
 %package full
