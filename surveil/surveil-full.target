@@ -10,3 +10,4 @@ Requires=alignak-receiver.service
 Requires=alignak-scheduler.service
 Requires=surveil-os-interface.service
 Requires=surveil-api.service
+Requires=httpd.service
