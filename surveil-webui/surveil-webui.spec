@@ -1,6 +1,6 @@
 Name:		surveil-webui
 Version:	0.8.0
-Release:	2
+Release:	3
 Summary:	Web Interface for Surveil
 
 Group:		Network
@@ -37,6 +37,8 @@ cp -r dist %{buildroot}/usr/share/surveil-webui
 mkdir -p %{buildroot}/%{_sysconfdir}/surveil-webui/
 ln -s /usr/share/surveil-webui/components/config/config.json %{buildroot}/%{_sysconfdir}/surveil-webui/config.json
 
+# httpd config
+install -d %{buildroot}/%{_sysconfdir}/httpd/conf.d
 install -pm0755 %{S:1} %{buildroot}/%{_sysconfdir}/httpd/conf.d/surveil-webui.conf
 
 %files
