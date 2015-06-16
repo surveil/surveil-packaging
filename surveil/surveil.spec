@@ -39,7 +39,7 @@ AutoReqProv: no
 
 %package os-interface
 Summary:  Surveil interface for OpenStack
-Requires: python-pika
+##Requires: python-pika
 Requires: python-surveilclient
 
 %package full
@@ -47,7 +47,7 @@ Summary: Surveil All-in-One installation
 Requires: mongodb-server
 Requires: influxdb
 Requires: grafana
-Requires: alignak
+Requires: alignak-common
 Requires: alignak-mod-auth-cfg-password
 Requires: alignak-mod-booster-nrpe
 Requires: alignak-mod-ceilometer
