@@ -1,6 +1,6 @@
 name:      surveil
 Version:   0.10.1
-Release:   1
+Release:   2
 Summary:   Surveil API
 
 Group:     Network
@@ -58,6 +58,7 @@ Requires: surveil
 Requires: surveil-webui
 Requires: surveil-os-interface
 Requires: python-surveilclient
+Requires: nagios-plugins-all
 
 %description
 Monitoring as a Service for OpenStack
