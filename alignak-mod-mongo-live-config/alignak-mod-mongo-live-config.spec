@@ -1,5 +1,5 @@
 Name:           alignak-mod-mongo-live-config
-Version:        0.3.0
+Version:        0.3.2
 Release:        3
 Summary:        alignak module for configuration of mongo live
 
@@ -44,7 +44,7 @@ install -pm0755 %{S:1} %{buildroot}/etc/alignak/modules
 
 
 %Changelog
-* Thu Jun 11 2015 Flavien Peyre <flavien.peyre@savoirfairelinux.com> 0.3.0-1
+* Thu Jun 11 2015 Flavien Peyre <flavien.peyre@savoirfairelinux.com> 0.3.2-1
 - Initial package
 
 
