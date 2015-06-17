@@ -8,9 +8,8 @@ From the package folder: ``rpmbuild --define "_sourcedir `pwd`" -ba *.spec``
 ``rpm -Uvh --nodeps package.rpm``
 
 ## Docker container used for packaging
-``docker pull ntfournier/docker-centos-packaging``
-
-``docker run -it ntfournier/docker-centos-packaging:latest bash``
+* ``make build``
+* `` make mount``
 
 ## Joulupukki start build command
 
