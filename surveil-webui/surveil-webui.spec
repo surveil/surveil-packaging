@@ -1,6 +1,6 @@
 Name:		surveil-webui
-Version:	0.8.0
-Release:	3
+Version:	0.9.0
+Release:	1
 Summary:	Web Interface for Surveil
 
 Group:		Network
@@ -41,12 +41,20 @@ ln -s /usr/share/surveil-webui/components/config/config.json %{buildroot}/%{_sys
 install -d %{buildroot}/%{_sysconfdir}/httpd/conf.d
 install -pm0755 %{S:1} %{buildroot}/%{_sysconfdir}/httpd/conf.d/surveil-webui.conf
 
+# Install configure dashboard script
+mkdir -p %{buildroot}%{_bindir}
+cp container/configure-dashboard.sh %{buildroot}%{_bindir}/surveil-webui-init
+
 %files
 /usr/share/surveil-webui
+%{_bindir}/surveil-webui-init
 %config(noreplace) %{_sysconfdir}/httpd/conf.d/surveil-webui.conf
 %config(noreplace) %{_sysconfdir}/surveil-webui/config.json
 
 
 %changelog
+* Wed Jun 17 2015 Vincent Fournier <vincent.fournier@savoirfairelinux.com> 0.9.0-1
+- Updated surveil-webui to 0.9.0
+
 * Wed Jun 10 2015 Thibault Cohen <thibault.cohen@savoirfairelinux.com> 0.8.0-1
 - Initial Package
