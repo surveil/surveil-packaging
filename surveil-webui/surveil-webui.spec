@@ -1,5 +1,5 @@
 Name:		surveil-webui
-Version:	0.9.0
+Version:	0.9.1
 Release:	1
 Summary:	Web Interface for Surveil
 
