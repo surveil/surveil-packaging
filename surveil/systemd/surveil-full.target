@@ -11,3 +11,6 @@ Requires=alignak-scheduler.service
 Requires=surveil-os-interface.service
 Requires=surveil-api.service
 Requires=httpd.service
+
+[Install]
+WantedBy=multi-user.target
