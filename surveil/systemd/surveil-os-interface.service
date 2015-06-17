@@ -3,3 +3,6 @@ Description=Surveil API service
 
 [Service]
 ExecStart=/usr/bin/surveil-os-interface
+
+[Install]
+WantedBy=multi-user.target

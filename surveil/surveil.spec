@@ -1,6 +1,6 @@
 name:      surveil
 Version:   0.9.2
-Release:   1
+Release:   2
 Summary:   Surveil API
 
 Group:     Network
@@ -8,10 +8,8 @@ License:   Apache
 URL:       https://github.com/stackforge/surveil
 
 Source0:   http://pypi.python.org/packages/source/p/%{name}/%{name}-%{version}.tar.gz
-Source1:   surveil-api.service
-Source2:   surveil-os-interface.service
-Source3:   config
-Source4:   surveil-full.target
+Source1:   systemd
+Source2:   config
 
 BuildArch: noarch
 
@@ -88,12 +86,12 @@ rm -rf  %{buildroot}/%{python_sitelib}/surveil*.egg-info*
 
 # /etc/surveil configuration
 install -d %{buildroot}%{_sysconfdir}/surveil
-install -pm0755 %{S:3}/* %{buildroot}%{_sysconfdir}/surveil
+install -pm0755 %{S:2}/* %{buildroot}%{_sysconfdir}/surveil
 
 # Init scripts
-install -D -m 444 %{S:1} %{buildroot}%{_unitdir}/surveil-api.service
-install -D -m 444 %{S:2} %{buildroot}%{_unitdir}/surveil-os-interface.service
-install -D -m 444 %{S:4} %{buildroot}%{_unitdir}/surveil-full.target
+install -D -m 444 %{S:1}/surveil-api.service %{buildroot}%{_unitdir}/surveil-api.service
+install -D -m 444 %{S:1}/surveil-os-interface.service %{buildroot}%{_unitdir}/surveil-os-interface.service
+install -D -m 444 %{S:1}/surveil-full.target %{buildroot}%{_unitdir}/surveil-full.target
 
 %files
 %{python_sitelib}/surveil
