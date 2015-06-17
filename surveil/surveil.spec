@@ -1,6 +1,6 @@
 name:      surveil
 Version:   0.10.1
-Release:   2
+Release:   3
 Summary:   Surveil API
 
 Group:     Network
