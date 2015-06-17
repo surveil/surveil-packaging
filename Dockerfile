@@ -5,9 +5,8 @@ MAINTAINER Vincent Fournier <vince@ntfournier.com>
 RUN yum install -y rpm-build git vim wget
 RUN yum install -y https://rdoproject.org/repos/rdo-release.rpm
 
-# Install git-review
-RUN yum install -y python-setup-tools python-pbr python python-pip
-RUN pip install git-review ipython
+RUN yum install -y python-setup-tools python-pbr python python-pip epel-release
+RUN pip install ipython
 
 # Enable git colors
 RUN git config --global color.ui auto
