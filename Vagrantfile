@@ -52,7 +52,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # Install repos
     config.vm.provision :shell, :inline => "yum install -y yum-utils vim"
-    config.vm.provision :shell, :inline => "yum-config-manager --add-repo http://yum.surveil.savoirfairelinux.net/centos_7/"
+    config.vm.provision :shell, :inline => "yum-config-manager --add-repo http://yum.surveil.io/centos_7/"
     config.vm.provision :shell, :inline => "yum install -y https://rdoproject.org/repos/rdo-release.rpm"
 
     # Install debug tools
