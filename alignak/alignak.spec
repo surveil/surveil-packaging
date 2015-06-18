@@ -143,9 +143,9 @@ mkdir -p %{buildroot}%{_sysconfdir}/%{name}/modules
 %clean
 
 %pre  common
+getent group nagios >/dev/null || groupadd -r nagios
 getent group %{alignak_group} >/dev/null || groupadd -r %{alignak_group}
-getent passwd %{alignak_user} >/dev/null || useradd -r -g %{alignak_group} -d /home/%{alignak_user} -m -s /bin/bash %{alignak_user}
-exit 0
+getent passwd %{alignak_user} >/dev/null || useradd -r -g %{alignak_group} -G nagios -d /home/%{alignak_user} -m -s /bin/bash %{alignak_user}
 
 %post common
 if [ $1 -eq 1 ] ; then
