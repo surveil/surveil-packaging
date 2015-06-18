@@ -81,9 +81,9 @@ fi
 
 
 declare -A PACKAGE_REPOS
-PACKAGE_REPOS=( ["surveil-packaging"]="https://github.com/surveil/surveil-packaging" )
+PACKAGE_REPOS=( ["surveil-packaging"]="https://github.com/surveil/surveil-packaging" ["monitoring-tools"]="https://github.com/savoirfairelinux/monitoring-tools" )
 declare -A PACKAGE_NAMES
-PACKAGE_NAMES=( ["surveil-packaging"]="surveil-packaging" )
+PACKAGE_NAMES=( ["surveil-packaging"]="surveil-packaging" ["monitoring-tools"]="monitoring-tools" )
 
 START_DATE=`date +%s`
 YUM_DISTROS="centos_7"
@@ -158,7 +158,8 @@ function build
     rm -rf ${LOCAL_TMP_FOLDER}
     mkdir -p ${LOCAL_TMP_FOLDER}
     # Launch build
-#    build_id=$(${CURL} -s -X POST -H "Content-Type: application/json" -i  -d "{ \"source_url\": \"${PACKAGE_REPO}\", \"source_type\": \"git\", \"branch\": \"packaging\", \"snapshot\": true}" ${JLPK_URL}/v3/users/${JLPK_USER}/${PACKAGE_NAME}/build | grep result  | json_pp  | grep "build" | awk '{ print $NF }')
+    # build_id=$(${CURL} -s -X POST -H "Content-Type: application/json" -i  -d "{ \"source_url\": \"${PACKAGE_REPO}\", \"source_type\": \"git\", \"branch\": \"packaging\", \"snapshot\": true}" ${JLPK_URL}/v3/users/${JLPK_USER}/${PACKAGE_NAME}/build | grep result  | json_pp  | grep "build" | awk '{ print $NF }')
+
     build_id=latest
     # Wait builds
     WAITING=1
