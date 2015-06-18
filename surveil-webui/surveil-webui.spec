@@ -1,5 +1,5 @@
 Name:		surveil-webui
-Version:	0.9.1
+Version:	0.10.0
 Release:	1
 Summary:	Web Interface for Surveil
 
@@ -53,6 +53,9 @@ cp container/configure-dashboard.sh %{buildroot}%{_bindir}/surveil-webui-init
 
 
 %changelog
+* Wed Jun 17 2015 Vincent Fournier <vincent.fournier@savoirfairelinux.com> 0.10.0-1
+- Updated surveil-webui to 0.10.0
+
 * Wed Jun 17 2015 Vincent Fournier <vincent.fournier@savoirfairelinux.com> 0.9.0-1
 - Updated surveil-webui to 0.9.0
 
