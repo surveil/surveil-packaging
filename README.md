@@ -13,7 +13,8 @@ From the package folder: ``rpmbuild --define "_sourcedir `pwd`" -ba *.spec``
 
 ## Joulupukki start build command
 
-``curl -X POST -H "Content-Type: application/json" -i  -d '{"source_url": "https://github.com/surveil/surveil-packaging.git", "source_type": "git", "branch": "centos" }' http://packager.savoirfairelinux.net/v3/users/tcohen/surveil-packaging/build``
+* surveil-packaging: ``curl -X POST -H "Content-Type: application/json" -i  -d '{"source_url": "https://github.com/surveil/surveil-packaging.git", "source_type": "git", "branch": "centos" }' http://packager.savoirfairelinux.net/v3/users/tcohen/surveil-packaging/build``
+* monitoring-tools: ``curl -X POST -H "Content-Type: application/json" -i -d '{"source_url": "https://github.com/savoirfairelinux/monitoring-tools.git", "source_type": "git", "branch": "master", "forced_distro": "centos_7" }' http://packager.savoirfairelinux.net/v3/users/tcohen/monitoring-tools/build``
 
 
 # Vagrant
