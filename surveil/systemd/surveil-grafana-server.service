@@ -1,0 +1,21 @@
+[Unit]
+Description=Grafana server for Surveil
+Documentation=http://docs.grafana.org
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+EnvironmentFile=/etc/sysconfig/grafana-server
+User=grafana
+Group=grafana
+Type=simple
+WorkingDirectory=/usr/share/grafana
+ExecStart=/usr/sbin/grafana-server                                \
+                            --config=/etc/surveil/grafana.ini     \
+                            cfg:default.paths.logs=${LOG_DIR}     \
+                            cfg:default.paths.data=${DATA_DIR}    \
+LimitNOFILE=10000
+TimeoutStopSec=20
+
+[Install]
+WantedBy=multi-user.target
