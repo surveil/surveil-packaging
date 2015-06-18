@@ -48,6 +48,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
     # Disabling SELinux
     config.vm.provision :shell, :inline => "echo 0 >  /sys/fs/selinux/enforce"
+    config.vm.provision :shell, :inline => "sed 's/SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config"
 
     # Install repos
     config.vm.provision :shell, :inline => "yum install -y yum-utils vim"
