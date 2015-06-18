@@ -93,6 +93,7 @@ install -pm0755 %{S:2}/* %{buildroot}%{_sysconfdir}/surveil
 install -D -m 444 %{S:1}/surveil-api.service %{buildroot}%{_unitdir}/surveil-api.service
 install -D -m 444 %{S:1}/surveil-os-interface.service %{buildroot}%{_unitdir}/surveil-os-interface.service
 install -D -m 444 %{S:1}/surveil-full.target %{buildroot}%{_unitdir}/surveil-full.target
+install -D -m 444 %{S:1}/surveil-grafana-server.service %{buildroot}%{_unitdir}/surveil-grafana-server.service
 
 %files
 %{python_sitelib}/surveil
@@ -110,6 +111,7 @@ install -D -m 444 %{S:1}/surveil-full.target %{buildroot}%{_unitdir}/surveil-ful
 
 %files full
 %{_unitdir}/surveil-full.target
+%{_unitdir}/surveil-grafana-server.service
 
 %post
 %systemd_post surveil-api.service
@@ -119,6 +121,7 @@ install -D -m 444 %{S:1}/surveil-full.target %{buildroot}%{_unitdir}/surveil-ful
 
 %post full
 %systemd_post surveil-full.target
+%systemd_post surveil-grafana-server.service
 
 %preun
 %systemd_preun surveil-api.service
@@ -128,6 +131,7 @@ install -D -m 444 %{S:1}/surveil-full.target %{buildroot}%{_unitdir}/surveil-ful
 
 %preun full
 %systemd_preun surveil-full.target
+%systemd_preun surveil-grafana-server.service
 
 %postun
 %systemd_postun_with_restart surveil-api.service
@@ -137,6 +141,7 @@ install -D -m 444 %{S:1}/surveil-full.target %{buildroot}%{_unitdir}/surveil-ful
 
 %postun full
 %systemd_postun_with_restart surveil-full.target
+%systemd_postun_with_restart surveil-grafana-server.service
 
 %changelog
 * Wed Jun 10 2015 Alexandre Viau <alexandre@alexandreviau.net> 1
