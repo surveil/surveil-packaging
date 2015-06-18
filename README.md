@@ -14,3 +14,18 @@ From the package folder: ``rpmbuild --define "_sourcedir `pwd`" -ba *.spec``
 ## Joulupukki start build command
 
 ``curl -X POST -H "Content-Type: application/json" -i  -d '{"source_url": "https://github.com/surveil/surveil-packaging.git", "source_type": "git", "branch": "centos" }' http://packager.savoirfairelinux.net/v3/users/tcohen/surveil-packaging/build``
+
+
+# Vagrant
+
+## Help
+
+``vagrant --help``
+
+## Get Vagrant devel environment
+
+``vagrant --debug-tools``
+
+## Get Vagrant with Surveil full installation
+
+``vagrant --install-type=full``
