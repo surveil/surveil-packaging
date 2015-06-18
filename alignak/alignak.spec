@@ -90,8 +90,6 @@ rm -rf %{buildroot}
 
 install -d -m0755  %{buildroot}%{_sysconfdir}/%{name}/
 rm -rf %{buildroot}%{_sysconfdir}/%{name}/*
-#cp -rf  debian/etc/*  %{buildroot}%{_sysconfdir}/%{name}/
-#cp -rf  debian/kaji/etc/*  %{buildroot}%{_sysconfdir}/%{name}/
 install -d -m0755 %{buildroot}/%{_mandir}/man8/
 install -p -m0644 manpages/manpages/* %{buildroot}/%{_mandir}/man8/
 install -d -m0755 %{buildroot}/usr/share/pyshared/alignak
@@ -134,6 +132,7 @@ install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}
 install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}/share
 install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}/doc
 install -d -m0755 %{buildroot}%{_localstatedir}/lib/%{name}/inventory
+install -d -m0777 %{buildroot}/usr/lib/monitoring/plugins/custom
 # run
 mkdir -p %{buildroot}%{_localstatedir}/run/
 install -d -m0755 %{buildroot}%{_localstatedir}/run/%{name}
@@ -184,6 +183,7 @@ fi
 %{python_sitelib}/Alignak-*.egg-info
 /var/lib/alignak/cli/
 /usr/share/pyshared/alignak
+/usr/lib/monitoring/plugins/custom
 %config(noreplace) %{_sysconfdir}/default/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %config(noreplace) %{_sysconfdir}/tmpfiles.d/%{name}.conf
