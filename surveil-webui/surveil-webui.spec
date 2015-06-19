@@ -23,11 +23,10 @@ ls
 %setup -qn bansho-%{version}
 
 %build
-
-gem install sass
-npm install grunt-cli
-npm install
-node_modules/bower/bin/bower --allow-root install
+gem install sass || gem install sass || gem install sass
+npm install grunt-cli || npm install grunt-cli || npm install grunt-cli
+npm install || npm install || npm install
+node_modules/bower/bin/bower --allow-root install || node_modules/bower/bin/bower --allow-root install || node_modules/bower/bin/bower --allow-root install
 LC_ALL="en_US.UTF-8" LANG="en_US.UTF-8" node_modules/grunt-cli/bin/grunt production:surveil
 
 %install
