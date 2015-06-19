@@ -1,5 +1,5 @@
 name:      surveil
-Version:   0.10.2
+Version:   0.10.3
 Release:   1
 Summary:   Surveil API
 
@@ -59,6 +59,22 @@ Requires: surveil-webui
 Requires: surveil-os-interface
 Requires: python-surveilclient
 Requires: nagios-plugins-all
+
+## Plugins
+Requires: monitoring-plugins-sfl-check-nova-host-status
+Requires: monitoring-plugins-sfl-check-glance
+Requires: monitoring-plugins-sfl-check-ceilometer
+Requires: monitoring-plugins-sfl-check-keystone
+Requires: monitoring-plugins-sfl-check-nova
+Requires: monitoring-plugins-sfl-check-cinder
+
+## Packs
+Requires: monitoring-packs-sfl-openstack-host
+Requires: monitoring-packs-sfl-openstack-nova-http
+Requires: monitoring-packs-sfl-openstack-keystone-http
+Requires: monitoring-packs-sfl-openstack-cinder-http
+Requires: monitoring-packs-sfl-linux-system-nrpe
+Requires: monitoring-packs-sfl-openstack-glance-http
 
 %description
 Monitoring as a Service for OpenStack
