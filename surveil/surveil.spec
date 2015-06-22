@@ -45,6 +45,9 @@ Summary: Surveil All-in-One installation
 Requires: mongodb-server
 Requires: influxdb
 Requires: grafana
+Requires: redis
+
+# Alignak
 Requires: alignak-common
 Requires: alignak-mod-auth-cfg-password
 Requires: alignak-mod-booster-nrpe
@@ -54,11 +57,14 @@ Requires: alignak-mod-mongo-live-config
 Requires: alignak-mod-mongodb
 Requires: alignak-mod-webui
 Requires: alignak-mod-ws-arbiter
+Requires: alignak-mod-retention-redis
+Requires: nagios-plugins-all
+
+# Surveil
 Requires: surveil
 Requires: surveil-webui
 Requires: surveil-os-interface
 Requires: python-surveilclient
-Requires: nagios-plugins-all
 
 ## Plugins
 Requires: monitoring-plugins-sfl-check-nova-host-status
