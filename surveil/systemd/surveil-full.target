@@ -2,6 +2,7 @@
 Description=Surveil Full
 Requires=mongod.service
 Requires=influxdb.service
+Requires=redis.service
 Requires=alignak-arbiter.service
 Requires=alignak-broker.service
 Requires=alignak-poller.service
