@@ -140,6 +140,10 @@ install -d -m0755 %{buildroot}%{_localstatedir}/run/%{name}
 cp -r %{SOURCE1}/%{name} %{buildroot}%{_sysconfdir}
 mkdir -p %{buildroot}%{_sysconfdir}/%{name}/modules
 
+#sudoers
+mkdir -p %{buildroot}/%{_sysconfdir}/sudoers.d
+install -m0440 %{SOURCE1}/sudoers.d/alignak %{buildroot}%/%{_sysconfdir}/sudoers.d/alignak
+
 %clean
 
 %pre  common
@@ -184,6 +188,7 @@ fi
 /var/lib/alignak/cli/
 /usr/share/pyshared/alignak
 /usr/lib/monitoring/plugins/custom
+%{_sysconfdir}/sudoers.d/alignak
 %config(noreplace) %{_sysconfdir}/default/%{name}
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %config(noreplace) %{_sysconfdir}/tmpfiles.d/%{name}.conf
