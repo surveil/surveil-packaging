@@ -142,7 +142,7 @@ mkdir -p %{buildroot}%{_sysconfdir}/%{name}/modules
 
 #sudoers
 mkdir -p %{buildroot}/%{_sysconfdir}/sudoers.d
-install -m0440 %{SOURCE1}/sudoers.d/alignak %{buildroot}%/%{_sysconfdir}/sudoers.d/alignak
+install -m0440 %{SOURCE1}/sudoers.d/alignak %{buildroot}/%{_sysconfdir}/sudoers.d/alignak
 
 %clean
 
