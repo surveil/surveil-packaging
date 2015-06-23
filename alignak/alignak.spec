@@ -4,7 +4,7 @@
 Summary:        Python Monitoring tool
 Name:           alignak
 Version:        20150525gitd7f457d
-Release:        4
+Release:        5
 URL:            https://github.com/Alignak-monitoring/alignak 
 Source0:        %{name}-%{version}.tar.gz
 Source1:        etc
@@ -37,7 +37,6 @@ Summary: Alignak Common files
 Group:          Application/System
 Requires:       python
 Requires:       python-pycurl
-Requires:       python-cherrypy
 Requires:       python-simplejson
 Requires:       systemd
 Requires:       sudo
