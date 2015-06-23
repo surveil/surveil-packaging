@@ -10,15 +10,13 @@ Source0:        %{name}-%{version}.tar.gz
 Source1:        etc
 Source2:        systemd
 License:        AGPLv3+
-Requires(post):  chkconfig
-Requires(preun): chkconfig
-# This is for /sbin/service
-Requires(preun): initscripts
+
 BuildRequires:  python-devel
 BuildRequires:  python-setuptools
 BuildRequires:  graphviz
 BuildRequires:  make
 BuildRequires:	python-sphinx
+
 Group:          Application/System
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-buildroot
@@ -41,11 +39,6 @@ Requires:       python-cherrypy
 Requires:       python-simplejson
 Requires:       systemd
 Requires:       sudo
-
-Requires(post):  chkconfig
-Requires(preun): chkconfig
-# This is for /sbin/service
-Requires(preun): initscripts
 
 %description common
 Common files for alignak monitoring
@@ -99,6 +92,7 @@ rm -rf %{buildroot}/etc/alignak/packs/.placeholder
 rm -rf %{buildroot}/var/lib/alignak/inventory/
 rm -rf %{buildroot}/var/lib/alignak/libexec/
 rm -rf %{buildroot}/var/lib/alignak/libexec/
+rm -rf %{buildroot}/etc/init.d
 
 # logrotate
 install -d -m0755 %{buildroot}%{_sysconfdir}/logrotate.d
@@ -146,36 +140,6 @@ getent group nagios >/dev/null || groupadd -r nagios
 getent group %{alignak_group} >/dev/null || groupadd -r %{alignak_group}
 getent passwd %{alignak_user} >/dev/null || useradd -r -g %{alignak_group} -G nagios -d /home/%{alignak_user} -m -s /bin/bash %{alignak_user}
 
-%post common
-if [ $1 -eq 1 ] ; then
-  /sbin/chkconfig --add %{name}-arbiter || :
-  /sbin/chkconfig --add %{name}-broker || :
-  /sbin/chkconfig --add %{name}-poller || :
-  /sbin/chkconfig --add %{name}-reactionner || :
-  /sbin/chkconfig --add %{name}-scheduler || :
-  /sbin/chkconfig --add %{name}-receiver || :
-fi
-
-%preun common
-if [ $1 -eq 0 ] ; then
-  /sbin/service %{name}-arbiter stop > /dev/null 2>&1 || :
-  /sbin/chkconfig --del %{name}-arbiter || :
-  /sbin/service %{name}-broker stop > /dev/null 2>&1 || :
-  /sbin/chkconfig --del %{name}-broker || :
-  /sbin/service %{name}-poller stop > /dev/null 2>&1 || :
-  /sbin/chkconfig --del %{name}-poller || :
-  /sbin/service %{name}-reactionner stop > /dev/null 2>&1 || :
-  /sbin/chkconfig --del %{name}-reactionner || :
-  /sbin/service %{name}-scheduler stop > /dev/null 2>&1 || :
-  /sbin/chkconfig --del %{name}-scheduler || :
-  /sbin/service %{name}-receiver stop > /dev/null 2>&1 || :
-  /sbin/chkconfig --del %{name}-receiver || :
-fi
-
-%postun common
-
-
-
 %files common
 /%{_unitdir}
 %{python_sitelib}/%{name}
@@ -191,7 +155,6 @@ fi
 %attr(-,%{alignak_user} ,%{alignak_group}) %dir %{_localstatedir}/lib/%{name}
 %attr(-,%{alignak_user} ,%{alignak_group}) %dir %{_localstatedir}/run/%{name}
 # alignak
-%attr(0755,root,root) %{_sysconfdir}/init.d/%{name}*
 %{_sbindir}/%{name}
 #man
 %{_mandir}/man8/%{name}*
