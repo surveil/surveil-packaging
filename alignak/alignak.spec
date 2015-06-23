@@ -4,23 +4,16 @@
 Summary:        Python Monitoring tool
 Name:           alignak
 Version:        20150525gitd7f457d
-Release:        3
+Release:        4
 URL:            https://github.com/Alignak-monitoring/alignak 
 Source0:        %{name}-%{version}.tar.gz
 Source1:        etc
 Source2:        systemd
 License:        AGPLv3+
-Requires:       python
-Requires:       python-pycurl
-Requires:       python-cherrypy
-Requires:       python-simplejson
 Requires(post):  chkconfig
 Requires(preun): chkconfig
 # This is for /sbin/service
 Requires(preun): initscripts
-#Requires:       nmap
-Requires:       sudo
-
 BuildRequires:  python-devel
 BuildRequires:  python-setuptools
 BuildRequires:  graphviz
@@ -42,10 +35,12 @@ Livestatus connector Alignak does not include any human interfaces.
 %package common
 Summary: Alignak Common files
 Group:          Application/System
-#Requires: %{name} = %{version}-%{release}
 Requires:       python
 Requires:       python-pycurl
+Requires:       python-cherrypy
+Requires:       python-simplejson
 Requires:       systemd
+Requires:       sudo
 
 Requires(post):  chkconfig
 Requires(preun): chkconfig
