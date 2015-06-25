@@ -1,5 +1,5 @@
 name:      surveil
-Version:   0.11.0
+Version:   0.12.0
 Release:   1
 Summary:   Surveil API
 
