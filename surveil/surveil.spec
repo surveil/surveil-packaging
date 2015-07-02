@@ -1,6 +1,6 @@
 name:      surveil
 Version:   0.12.0
-Release:   1
+Release:   2
 Summary:   Surveil API
 
 Group:     Network
@@ -110,6 +110,7 @@ rm -rf  %{buildroot}/%{python_sitelib}/surveil*.egg-info*
 # /etc/surveil configuration
 install -d %{buildroot}%{_sysconfdir}/surveil
 install -pm0755 %{S:2}/* %{buildroot}%{_sysconfdir}/surveil
+ln -s %{python_sitelib}/surveil/api/config.py %{buildroot}%{_sysconfdir}/surveil/config.py
 
 # Init scripts
 install -D -m 444 %{S:1}/surveil-api.service %{buildroot}%{_unitdir}/surveil-api.service
