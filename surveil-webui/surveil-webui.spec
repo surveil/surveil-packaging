@@ -51,8 +51,8 @@ cp container/configure-dashboard.sh %{buildroot}%{_bindir}/surveil-webui-init
 /usr/share/surveil-webui
 %{_bindir}/surveil-webui-init
 %config(noreplace) %{_sysconfdir}/httpd/conf.d/surveil-webui.conf
+%config(noreplace) %{_sysconfdir}/surveil-webui/default_user_config.json
 %config(noreplace) %{_sysconfdir}/surveil-webui/config.json
-
 
 %changelog
 * Fri Jun 19 2015 Thibault Cohen <thibault.cohen@savoirfairelinux.com> 0.12.2-1
