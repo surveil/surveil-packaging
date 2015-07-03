@@ -1,5 +1,5 @@
 Name:		surveil-webui
-Version:	0.12.2
+Version:	0.13.0
 Release:	1
 Summary:	Web Interface for Surveil
 
@@ -33,12 +33,15 @@ LC_ALL="en_US.UTF-8" LANG="en_US.UTF-8" node_modules/grunt-cli/bin/grunt product
 rm -rf %{buildroot}/*
 mkdir -p %{buildroot}/usr/share/
 cp -r dist %{buildroot}/usr/share/surveil-webui
-mkdir -p %{buildroot}/%{_sysconfdir}/surveil-webui/
-ln -s /usr/share/surveil-webui/components/config/config.json %{buildroot}/%{_sysconfdir}/surveil-webui/config.json
 
 # httpd config
 install -d %{buildroot}/%{_sysconfdir}/httpd/conf.d
 install -pm0755 %{S:1} %{buildroot}/%{_sysconfdir}/httpd/conf.d/surveil-webui.conf
+
+# surveil-webui config
+install -d %{buildroot}/%{_sysconfdir}/surveil-webui
+ln -s /usr/share/surveil-webui/components/config/config.json %{buildroot}/%{_sysconfdir}/surveil-webui/default_user_config.json
+ln -s /usr/share/surveil-webui/components/config/developmentConfig.json %{buildroot}/%{_sysconfdir}/surveil-webui/config.json
 
 # Install configure dashboard script
 mkdir -p %{buildroot}%{_bindir}
