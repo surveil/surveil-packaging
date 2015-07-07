@@ -45,6 +45,9 @@ Summary: Surveil All-in-One installation
 Requires: mongodb-server
 Requires: influxdb
 Requires: grafana
+Requires: redis
+
+# Alignak
 Requires: alignak-common
 Requires: alignak-mod-auth-cfg-password
 Requires: alignak-mod-booster-nrpe
@@ -54,11 +57,30 @@ Requires: alignak-mod-mongo-live-config
 Requires: alignak-mod-mongodb
 Requires: alignak-mod-webui
 Requires: alignak-mod-ws-arbiter
+Requires: alignak-mod-retention-redis
+Requires: nagios-plugins-all
+
+# Surveil
 Requires: surveil
 Requires: surveil-webui
 Requires: surveil-os-interface
 Requires: python-surveilclient
-Requires: nagios-plugins-all
+
+## Plugins
+Requires: monitoring-plugins-sfl-check-nova-host-status
+Requires: monitoring-plugins-sfl-check-glance
+Requires: monitoring-plugins-sfl-check-ceilometer
+Requires: monitoring-plugins-sfl-check-keystone
+Requires: monitoring-plugins-sfl-check-nova
+Requires: monitoring-plugins-sfl-check-cinder
+
+## Packs
+Requires: monitoring-packs-sfl-openstack-host
+Requires: monitoring-packs-sfl-openstack-nova-http
+Requires: monitoring-packs-sfl-openstack-keystone-http
+Requires: monitoring-packs-sfl-openstack-cinder-http
+Requires: monitoring-packs-sfl-linux-system-nrpe
+Requires: monitoring-packs-sfl-openstack-glance-http
 
 %description
 Monitoring as a Service for OpenStack
@@ -88,6 +110,7 @@ rm -rf  %{buildroot}/%{python_sitelib}/surveil*.egg-info*
 # /etc/surveil configuration
 install -d %{buildroot}%{_sysconfdir}/surveil
 install -pm0755 %{S:2}/* %{buildroot}%{_sysconfdir}/surveil
+ln -s %{python_sitelib}/surveil/api/config.py %{buildroot}%{_sysconfdir}/surveil/config.py
 
 # Init scripts
 install -D -m 444 %{S:1}/surveil-api.service %{buildroot}%{_unitdir}/surveil-api.service

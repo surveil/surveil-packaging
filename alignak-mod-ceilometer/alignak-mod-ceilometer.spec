@@ -1,6 +1,6 @@
 Name:		alignak-mod-ceilometer
-Version:	0.1.0
-Release:	2
+Version:	0.2.1
+Release:	1
 Summary:	Alignak Module Ceilometer for Broker
 
 Group:		Network
