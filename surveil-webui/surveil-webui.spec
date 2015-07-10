@@ -44,12 +44,12 @@ ln -s /usr/share/surveil-webui/components/config/config.json %{buildroot}/%{_sys
 ln -s /usr/share/surveil-webui/components/config/developmentConfig.json %{buildroot}/%{_sysconfdir}/surveil-webui/config.json
 
 # Install configure dashboard script
-mkdir -p %{buildroot}%{_bindir}
-cp container/configure-dashboard.sh %{buildroot}%{_bindir}/surveil-webui-init
+mkdir -p %{buildroot}%{_sbindir}
+cp container/configure-dashboard.sh %{buildroot}%{_sbindir}/surveil-webui-init
 
 %files
 /usr/share/surveil-webui
-%{_bindir}/surveil-webui-init
+%{_sbindir}/surveil-webui-init
 %config(noreplace) %{_sysconfdir}/httpd/conf.d/surveil-webui.conf
 %config(noreplace) %{_sysconfdir}/surveil-webui/default_user_config.json
 %config(noreplace) %{_sysconfdir}/surveil-webui/config.json
