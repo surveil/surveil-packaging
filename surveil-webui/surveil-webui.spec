@@ -1,6 +1,6 @@
 Name:		surveil-webui
 Version:	0.14.0
-Release:	1
+Release:	2
 Summary:	Web Interface for Surveil
 
 Group:		Network
@@ -36,7 +36,7 @@ cp -r dist %{buildroot}/usr/share/surveil-webui
 
 # httpd config
 install -d %{buildroot}/%{_sysconfdir}/httpd/conf.d
-install -pm0755 %{S:1} %{buildroot}/%{_sysconfdir}/httpd/conf.d/surveil-webui.conf
+install -pm0644 %{S:1} %{buildroot}/%{_sysconfdir}/httpd/conf.d/surveil-webui.conf
 
 # surveil-webui config
 install -d %{buildroot}/%{_sysconfdir}/surveil-webui
@@ -55,6 +55,9 @@ cp container/configure-dashboard.sh %{buildroot}%{_bindir}/surveil-webui-init
 %config(noreplace) %{_sysconfdir}/surveil-webui/config.json
 
 %changelog
+* Fri Jul 10 2015 Thibault Cohen <thibault.cohen@savoirfairelinux.com> 0.14.0-2
+- Fix apache conf permissions
+
 * Fri Jun 19 2015 Thibault Cohen <thibault.cohen@savoirfairelinux.com> 0.12.2-1
 - Updated surveil-webui to 0.12.2
 
