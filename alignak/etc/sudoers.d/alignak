@@ -1,1 +1,2 @@
 alignak ALL=(ALL) NOPASSWD: /usr/bin/systemctl restart alignak-arbiter
+Defaults:alignak        !requiretty
