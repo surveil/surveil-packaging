@@ -1,5 +1,5 @@
 name:      surveil
-Version:   0.13.1
+Version:   0.14.0
 Release:   1
 Summary:   Surveil API
 
@@ -107,6 +107,9 @@ rm -rf surveil.egg-info
 # Remove useless egg-info files
 rm -rf  %{buildroot}/%{python_sitelib}/surveil*.egg-info*
 
+# Remove default config
+rm -rf %{buildroot}/usr/etc
+
 # /etc/surveil configuration
 install -d %{buildroot}%{_sysconfdir}/surveil
 install -pm0755 %{S:2}/* %{buildroot}%{_sysconfdir}/surveil
@@ -124,6 +127,7 @@ install -D -m 444 %{S:1}/surveil-grafana-server.service %{buildroot}%{_unitdir}/
 %{_bindir}/surveil-pack-upload
 %{_bindir}/surveil-init
 %{_bindir}/surveil-os-discovery
+%{_bindir}/surveil-from-nagios
 %{_sysconfdir}/surveil
 
 %{_unitdir}/surveil-api.service
