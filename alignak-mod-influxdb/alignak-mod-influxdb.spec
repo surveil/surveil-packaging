@@ -1,5 +1,5 @@
 Name:		alignak-mod-influxdb
-Version:	2.7.4
+Version:	3.1
 Release:	2
 Summary:	Alignak Module InfluxDB for Broker
 
