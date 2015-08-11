@@ -1,5 +1,5 @@
 Name:             python-surveilclient
-Version:          0.10.0
+Version:          0.13.3
 Release:          1
 Summary:          Python API and CLI for Surveil
 
