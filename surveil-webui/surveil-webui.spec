@@ -1,5 +1,5 @@
 Name:		surveil-webui
-Version:	0.14.0
+Version:	0.15.0
 Release:	1
 Summary:	Web Interface for Surveil
 
@@ -16,7 +16,7 @@ BuildRequires: ruby
 BuildRequires: git
 
 %description
-Reponsive, lightweigth Web Interface for Surveil API
+Reponsive, lightweight Web Interface for Surveil API
 
 %prep
 ls
@@ -55,6 +55,9 @@ cp container/configure-dashboard.sh %{buildroot}%{_bindir}/surveil-webui-init
 %config(noreplace) %{_sysconfdir}/surveil-webui/config.json
 
 %changelog
+* Wed Aug 12 2015 Vincent Fournier <vincent.fournier@savoirfairelinux.com> 0.15.0-1
+- Updated surveil-webui to 0.15.0
+
 * Fri Jun 19 2015 Thibault Cohen <thibault.cohen@savoirfairelinux.com> 0.12.2-1
 - Updated surveil-webui to 0.12.2
 
