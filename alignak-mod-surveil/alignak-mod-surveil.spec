@@ -1,6 +1,6 @@
 Name:		alignak-mod-surveil
-Version:	3.1
-Release:	2
+Version:	0.1.0
+Release:	1
 Summary:	Alignak Module for Surveil
 
 Group:		Network
