@@ -1,3 +1,0 @@
-centos_7:
-    spec: alignak-mod-mongodb.spec
-    source_archived: true
