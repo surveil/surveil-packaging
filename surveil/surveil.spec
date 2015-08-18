@@ -54,7 +54,7 @@ Requires: alignak-mod-booster-nrpe
 Requires: alignak-mod-ceilometer
 Requires: alignak-mod-influxdb
 Requires: alignak-mod-mongo-live-config
-Requires: alignak-mod-mongodb
+Requires: alignak-mod-surveil
 Requires: alignak-mod-webui
 Requires: alignak-mod-ws-arbiter
 Requires: alignak-mod-retention-redis
