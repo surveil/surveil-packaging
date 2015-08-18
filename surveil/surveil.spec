@@ -113,7 +113,6 @@ rm -rf %{buildroot}/usr/etc
 # /etc/surveil configuration
 install -d %{buildroot}%{_sysconfdir}/surveil
 install -pm0755 %{S:2}/* %{buildroot}%{_sysconfdir}/surveil
-ln -s %{python_sitelib}/surveil/api/config.py %{buildroot}%{_sysconfdir}/surveil/config.py
 
 # Init scripts
 install -D -m 444 %{S:1}/surveil-api.service %{buildroot}%{_unitdir}/surveil-api.service
