@@ -1,5 +1,5 @@
 Name:           python-influxdb
-Version:        2.4.0
+Version:        2.8.0
 Release:        1
 Summary:        Python client for InfluxDB
 
