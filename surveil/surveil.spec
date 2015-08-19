@@ -83,6 +83,7 @@ Requires: monitoring-packs-sfl-openstack-keystone-http
 Requires: monitoring-packs-sfl-openstack-cinder-http
 Requires: monitoring-packs-sfl-linux-system-nrpe
 Requires: monitoring-packs-sfl-openstack-glance-http
+Requires: monitoring-packs-sfl-generic-host
 
 %description
 Monitoring as a Service for OpenStack
