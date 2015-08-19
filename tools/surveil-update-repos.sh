@@ -240,7 +240,7 @@ function build
 
     # Download extra packages
     wget -O ${DISTRO_FOLDER}/influxdb-0.9.2-1.x86_64.rpm https://s3.amazonaws.com/influxdb/influxdb-0.9.2-1.x86_64.rpm
-    wget -O ${DISTRO_FOLDER}/grafana-2.1.0-pre1.x86_64.rpm https://grafanarel.s3.amazonaws.com/builds/grafana-2.1.0-pre1.x86_64.rpm
+    wget -O ${DISTRO_FOLDER}/grafana-2.1.0-1.x86_64.rpm https://grafanarel.s3.amazonaws.com/builds/grafana-2.1.0-1.x86_64.rpm
     wget -O ${DISTRO_FOLDER}/python-pika-0.9.5-7.fc21.noarch.rpm http://dl.fedoraproject.org/pub/fedora/linux/releases/22/Everything/i386/os/Packages/p/python-pika-0.9.5-7.fc21.noarch.rpm
 
     # Update repo
