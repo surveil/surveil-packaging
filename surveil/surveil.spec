@@ -31,6 +31,8 @@ Requires: python-keystonemiddleware
 Requires: python-paste-deploy
 Requires: python-influxdb
 Requires: python-six
+Requires: python-dateutil
+Requires: python-mongoengine
 
 # use to remove the dependency added by rpmbuild on python(abi)
 AutoReqProv: no
