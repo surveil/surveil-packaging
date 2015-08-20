@@ -1,5 +1,5 @@
 Name:		surveil-webui
-Version:	0.16.0
+Version:	0.16.2
 Release:	1
 Summary:	Web Interface for Surveil
 
@@ -40,7 +40,7 @@ install -pm0755 %{S:1} %{buildroot}/%{_sysconfdir}/httpd/conf.d/surveil-webui.co
 
 # surveil-webui config
 install -d %{buildroot}/%{_sysconfdir}/surveil-webui
-ln -s /usr/share/surveil-webui/components/config/config.json %{buildroot}/%{_sysconfdir}/surveil-webui/user_config.json
+ln -s /usr/share/surveil-webui/components/config/config.json %{buildroot}/%{_sysconfdir}/surveil-webui/config.json
 ln -s /usr/share/surveil-webui/components/config/defaultLayoutConfig.json %{buildroot}/%{_sysconfdir}/surveil-webui/default_layout_config.json
 ln -s /usr/share/surveil-webui/components/config/componentsConfig.json %{buildroot}/%{_sysconfdir}/surveil-webui/components_config.json
 
@@ -52,11 +52,14 @@ cp container/configure-dashboard.sh %{buildroot}%{_sbindir}/surveil-webui-init
 /usr/share/surveil-webui
 %{_sbindir}/surveil-webui-init
 %config(noreplace) %{_sysconfdir}/httpd/conf.d/surveil-webui.conf
-%config(noreplace) %{_sysconfdir}/surveil-webui/user_config.json
+%config(noreplace) %{_sysconfdir}/surveil-webui/config.json
 %config(noreplace) %{_sysconfdir}/surveil-webui/default_layout_config.json
 %config(noreplace) %{_sysconfdir}/surveil-webui/components_config.json
 
 %changelog
+* Thu Aug 20 2015 Vincent Fournier <vincent.fournier@savoirfairelinux.com> 0.16.2-1
+- Updated surveil-webui to 0.16.2
+
 * Wed Aug 19 2015 Vincent Fournier <vincent.fournier@savoirfairelinux.com> 0.16.0-1
 - Updated surveil-webui to 0.16.0
 
